@@ -1,6 +1,7 @@
 from flask import Flask
 from database import db
 from routes.entrada_estoque import entrada_estoque_bp
+from routes.listar_produtos import listar_produtos_bp
 
 app = Flask(__name__)
 
@@ -10,6 +11,9 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)
 
 app.register_blueprint(entrada_estoque_bp)
+app.register_blueprint(listar_produtos_bp)  
+
+
 
 with app.app_context():
     db.create_all()
