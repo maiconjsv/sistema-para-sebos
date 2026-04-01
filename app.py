@@ -2,6 +2,7 @@ from flask import Flask
 from database import db
 from routes.entrada_estoque import entrada_estoque_bp
 from routes.listar_produtos import listar_produtos_bp
+from routes.cadastro_patreleira import cadastrar_prateleira_bp
 
 app = Flask(__name__)
 
@@ -12,6 +13,7 @@ db.init_app(app)
 
 app.register_blueprint(entrada_estoque_bp)
 app.register_blueprint(listar_produtos_bp)  
+app.register_blueprint(cadastrar_prateleira_bp)
 
 
 

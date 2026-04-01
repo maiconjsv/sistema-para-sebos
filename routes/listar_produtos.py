@@ -1,7 +1,5 @@
 from flask import Blueprint, request, render_template
-from database import db
 from models.livro import Livro
-from models.prateleira import Prateleira
 
 
 listar_produtos_bp = Blueprint("listar_produtos", __name__)

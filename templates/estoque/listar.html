@@ -2,11 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=
-    , initial-scale=1.0">
     <title>Document</title>
 </head>
-<body>
-    <p>Teste listar produtos</p>
+
+<h1>Estoque de Livros</h1>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Título</th>
+        <th>Autor</th>
+        <th>Tema</th>
+        <th>Preço</th>
+        <th>Quantidade</th>
+        <th>Data Entrada</th>
+        <th>Prateleira</th>
+    </tr>
+
+    {% for livro in livros %}
+    <tr>
+        <td>{{ livro.id }}</td>
+        <td>{{ livro.titulo }}</td>
+        <td>{{ livro.autor }}</td>
+        <td>{{ livro.tema }}</td>
+        <td>{{ livro.preco_compra }}</td>
+        <td>{{ livro.quantidade }}</td>
+        <td>{{ livro.data_entrada }}</td>
+        <td>{{ livro.prateleira.codigo }}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
 </body>
 </html>

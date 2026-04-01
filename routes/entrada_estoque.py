@@ -20,6 +20,7 @@ def entrada_estoque():
         titulo = request.form.get("titulo")
         autor = request.form.get("autor")
         preco = request.form.get("preco")
+        tema = request.form.get("tema")
         quantidade = request.form.get("quantidade")
         id_prateleira = request.form.get("id_prateleira")
 
@@ -32,8 +33,12 @@ def entrada_estoque():
         elif not preco:
             message = "Preço obrigatório"
 
+        elif not tema:
+            message = "Tema obrigatório"
+
         elif not quantidade:
             message = "Quantidade obrigatória"
+
         elif not id_prateleira:
             message = "Prateleira obrigatória"            
 
@@ -44,7 +49,8 @@ def entrada_estoque():
                 autor=autor,
                 preco_compra=float(preco),
                 quantidade=int(quantidade),
-                id_prateleira=int(id_prateleira)
+                id_prateleira=int(id_prateleira),
+                tema=tema
             )
 
             db.session.add(livro)

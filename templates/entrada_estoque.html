@@ -21,6 +21,11 @@
     <input type="text" name="autor">
     <br><br>
 
+    <label>Tema</label>
+    <br>
+    <input type="text" name="tema">
+    <br><br>
+
     <label>Preço de compra</label>
     <br>
     <input type="number" step="0.01" name="preco">
@@ -38,7 +43,7 @@
         {% for prateleira in prateleiras %}
 
         <option value="{{ prateleira.id }}">
-            {{ prateleira.nome }}
+            {{ prateleira.codigo}} - {{ prateleira.descricao }}
         </option>
 
         {% endfor %}

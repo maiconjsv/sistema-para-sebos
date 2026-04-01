@@ -28,6 +28,11 @@ class Livro(db.Model):
         nullable=False
     )
 
+    tema = db.Column(
+        db.String(100),
+        nullable=False
+    )
+
     data_entrada = db.Column(
         db.DateTime,
         default=datetime.utcnow
@@ -38,3 +43,6 @@ class Livro(db.Model):
         db.ForeignKey("prateleira.id"),
         nullable=False
     )
+    prateleira = db.relationship( "Prateleira", backref="livros")
+
+    #Adcionar log de usuario que adcionou o livro
