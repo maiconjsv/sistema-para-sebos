@@ -4,6 +4,9 @@ from routes.entrada_estoque import entrada_estoque_bp
 from routes.listar_produtos import listar_produtos_bp
 from routes.cadastro_patreleira import cadastrar_prateleira_bp
 
+from models.setor import Setor
+from models.prateleira import Prateleira
+
 app = Flask(__name__)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///sebo.db"

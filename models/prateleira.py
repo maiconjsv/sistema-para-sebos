@@ -30,8 +30,14 @@ class Prateleira(db.Model):
 
     descricao = db.Column(
         db.String(100)
-    )
+    )   
 
-    setor = db.Column(
-        db.String(50)
+    id_setor = db.Column(
+        db.Integer,
+        db.ForeignKey("setor.id"),
+        nullable=False
+    )
+    setor = db.relationship(
+    "Setor",
+    backref="prateleiras"
     )
