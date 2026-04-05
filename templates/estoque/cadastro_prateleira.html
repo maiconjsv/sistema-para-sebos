@@ -21,9 +21,19 @@
         <input type="text" name="descricao">
         <br><br>
 
-        <label for="setor">Setor</label>
-        <br>
-        <input type="text" name="setor">
+    <label>Setor</label>
+    <br>
+    <select name="id_setor">
+
+    {% for setor in setores %}
+
+    <option value="{{ setor.id }}">
+        {{ setor.nome }} - {{ setor.descricao }}
+    </option>
+
+    {% endfor %}
+
+    </select>
         <br><br>
 
         <button type="submit">Salvar</button>

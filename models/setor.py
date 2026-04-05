@@ -28,4 +28,7 @@ class Setor(db.Model):
         db.DateTime,
         default=datetime.utcnow
     )
+    classificacao = db.Column(
+        db.String(100)  
+    )
 

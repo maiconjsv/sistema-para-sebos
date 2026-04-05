@@ -1,17 +1,20 @@
 from flask import Blueprint, request, render_template
 
+from auth import login_required
 from database import db
 from models.livro import Livro
 from models.prateleira import Prateleira
 
-entrada_estoque_bp = Blueprint(
-    "entrada_estoque",
+entrada_livro_bp = Blueprint(
+    "entrada_livro",
     __name__
 )
 
 
-@entrada_estoque_bp.route("/", methods=["GET", "POST"])
-def entrada_estoque():
+@entrada_livro_bp.route("/entrada_livro", methods=["GET", "POST"])
+@login_required
+
+def entrada_livro():
 
     message = ""
 
@@ -61,7 +64,7 @@ def entrada_estoque():
     prateleiras = Prateleira.query.all()
 
     return render_template(
-        "entrada_estoque.html",
+        "estoque/entrada_livro.html",
         prateleiras=prateleiras,
         message=message
     )
