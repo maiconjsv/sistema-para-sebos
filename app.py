@@ -15,7 +15,7 @@ from models.prateleira import Prateleira
 from models.classificacoes import Classificacao
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("SECRET_KEY")
+app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "dev-secret-key")
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///sebo.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False

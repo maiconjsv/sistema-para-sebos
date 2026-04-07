@@ -1,67 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="../../static/css/estoque.css">
     <title>Entrada de livros</title>
 </head>
 <body>
 
-<h2>Entrada de Livro</h2>
+    <div id="sidebar">
+        <h3>BookCase</h3>
+        <a href="/produtos">Listar livros</a> <br>
+        <a href="/cadastro_prateleira">Entrada prateleira</a> <br>
+        <a href="/cadastro_classificacao">cadastro_classificacao</a> <br>
+        <a href="/cadastro_setor">cadastro_setor</a> <br>
+        <a href="/entrada_outros">entrada_outros</a> <br>
+    </div>
 
-<p>{{ message }}</p>
+<main>
+    <h2>Entrada de Livro</h2>
+    
+    <p>{{ message }}</p>
+    
+    <form method="POST">
+    
+        <label>Título</label>
+        <br>
+        <input type="text" name="titulo">
+        <br><br>
+    
+        <label>Autor</label>
+        <br>
+        <input type="text" name="autor">
+        <br><br>
+    
+        <label>Tema</label>
+        <br>
+        <input type="text" name="tema">
+        <br><br>
+    
+        <label>Preço de compra</label>
+        <br>
+        <input type="number" step="0.01" name="preco">
+        <br><br>
+    
+        <label>Quantidade</label>
+        <br>
+        <input type="number" name="quantidade">
+        <br><br>
+    
+        <label>Prateleira</label>
+        <br>
+        <select name="id_prateleira">
+    
+            {% for prateleira in prateleiras %}
+    
+            <option value="{{ prateleira.id }}">
+                {{ prateleira.codigo}} - {{ prateleira.descricao }}
+            </option>
+    
+            {% endfor %}
+    
+        </select>
+    
+        <br><br>
+    
+        <button type="submit">
+            Registrar Entrada
+        </button>
+    
+    </form>
+</main>
 
-<form method="POST">
-
-    <label>Título</label>
-    <br>
-    <input type="text" name="titulo">
-    <br><br>
-
-    <label>Autor</label>
-    <br>
-    <input type="text" name="autor">
-    <br><br>
-
-    <label>Tema</label>
-    <br>
-    <input type="text" name="tema">
-    <br><br>
-
-    <label>Preço de compra</label>
-    <br>
-    <input type="number" step="0.01" name="preco">
-    <br><br>
-
-    <label>Quantidade</label>
-    <br>
-    <input type="number" name="quantidade">
-    <br><br>
-
-    <label>Prateleira</label>
-    <br>
-    <select name="id_prateleira">
-
-        {% for prateleira in prateleiras %}
-
-        <option value="{{ prateleira.id }}">
-            {{ prateleira.codigo}} - {{ prateleira.descricao }}
-        </option>
-
-        {% endfor %}
-
-    </select>
-
-    <br><br>
-
-    <button type="submit">
-        Registrar Entrada
-    </button>
-
-</form>
-<a href="/produtos">Listar livros</a> <br>
-<a href="/cadastro_prateleira">Entrada prateleira</a> <br>
-<a href="/cadastro_classificacao">cadastro_classificacao</a> <br>
-<a href="/cadastro_setor">cadastro_setor</a> <br>
-<a href="/entrada_outros">entrada_outros</a> <br>
 </body>
 </html>
 

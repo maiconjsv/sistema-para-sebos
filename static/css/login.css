@@ -1,0 +1,134 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+:root{
+    --dourado: #E68C3A;
+    --azul: #213E60;
+    --cinza: #D8D1BD;
+    --branco: #F4F2EF;
+}
+
+main{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 100%;
+    height: 100vh;
+}
+
+    #mensagem_erro{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #info_area{
+        background-color: var(--azul);
+        width: 60%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+        h1{
+            font-size: 300%;
+            font-weight: 900;
+        }
+        #text_div{
+            width: 100%;
+            height: 30%;
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            flex-direction: column;
+        }
+            #text_div h1{
+                color: var(--dourado);
+                margin-left: 10%;
+            }
+            #text_div p{
+                color: var(--branco);
+                margin-left: 10%;
+            }
+        #novidades_div{
+            width: 100%;
+            height: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+            #novidades_div p, h3{
+                margin: 0 20px 0 20px;
+            }
+        #links{
+            height: 20%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+        }
+            #links nav ul{
+                display: flex;
+                flex-direction: row;
+                gap: 20px;
+            }
+                #links nav ul li{
+                    list-style: none;
+                    font-weight: 300;
+                    color: var(--branco);
+                    margin-bottom: 10px;
+                }
+
+    #login_area{
+        width: 40%;
+        height: 100%;
+    }
+        #login{
+            width: 100%;
+            height: 100%;
+            background-color: var(--cinza);
+        }
+            #login form{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                height: 90%;
+                align-items: flex-start;
+                justify-content: center;
+                gap: 10px;
+            }   
+                .btns_form{
+                    width: 70%;
+                    height: 30px;
+                    border-radius: 6px;
+                    border: none;
+                    text-align: left;
+                    padding: 5px 1px 5px 10px;
+                    margin-left: 10%;
+                }
+                #login form label{
+                    color: black;
+                    margin-left: 10%;
+                }
+                #btn_login{
+                    width: 30%;
+                    height: 30px;
+                    border: none;
+                    background-color: var(--azul);
+                    color: var(--branco);
+                    cursor: pointer;
+                    transition: all ease 0.8s;                    
+                    margin-left: 10%;
+                }
+                    #btn_login:hover{
+                        background-color: #182e46;
+                        transition: all ease 0.8s;
+                    }
+        #info_div{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
