@@ -2,13 +2,13 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
-    // "rootDir": "./src",
-    // "outDir": "./dist",
+     "rootDir": "ts/",
+     "outDir": "static/js",
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
-    "module": "nodenext",
-    "target": "esnext",
+    "module": "es6",
+    "target": "es6",
     "types": [],
     // For nodejs:
     // "lib": ["esnext"],

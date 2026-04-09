@@ -16,13 +16,17 @@
         flex-direction: row;
     }
 
-    #sidebar{
+    .sidebar{
         background-color: aqua;
         width: 300px;
         height: 100vh;
         position: absolute;
-        left: -302px;
+        left: -200px;
     }
+        .sidebar.open{
+            left: 0;
+        }
+
 
     /*--------------------------------------------------------------------*/
     
