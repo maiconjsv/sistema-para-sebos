@@ -11,6 +11,7 @@ login_bp = Blueprint(
 )
 
 @login_bp.route("/", methods=["GET", "POST"])
+
 def login():
 
     if request.method == "POST":
@@ -38,8 +39,9 @@ def login():
                 return redirect("/entrada_livro")
 
         flash("Login ou senha inválidos")
-
+        
+    usuario_logado = session["usuario_nome"]
     return render_template(
         "usuario/login.html",
-        versao_sistema="1.0.0"
+        versao_sistema="1.0.0",
     )

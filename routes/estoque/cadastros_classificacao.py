@@ -1,5 +1,5 @@
-from flask import Blueprint, request, render_template
-from flask_login import login_required
+from flask import Blueprint, request, render_template, session
+from auth import login_required
 from database import db
 from models.classificacoes import Classificacao
 from sqlalchemy.exc import IntegrityError
@@ -59,5 +59,6 @@ def cadastro_classificacao():
     return render_template(
         "estoque/cadastro_classificacao.html",
         classificacoes=classificacoes,
-        message=message
+        message=message,
+        usuario_logado = session["usuario_nome"]
     )

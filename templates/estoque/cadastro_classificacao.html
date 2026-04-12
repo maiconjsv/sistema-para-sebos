@@ -3,26 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../../static/css/estoque.css">
+    <title>Cadastro de classificação</title>
 </head>
 <body>
-    <h1>Cadastro Classificação</h1>
-    <p>
-        {{message}}
-    </p>
-    <form method="post">
-        <label for="nome_classificacao">Nome da classificação</label>
-        <br>
-        <input type="text" name="nome_classificacao">
-        <br><br>
-
-        <label for="descricao">Nome da classificação</label>
-        <br>
-        <input type="text" name="descricao">
-        <br><br>
-        <button type="submit">
-            Cadastrar   
-        </button>
-    </form>
+    <div class="sidebar">
+        <div class="sidebar_click">
+            <h3>BookCase</h3> 
+            <img src="../../static/media/arrow_open.svg" alt="" class="btn_sidebar_control">
+        </div>
+        <div class="sidebar_links" >
+            <a href="/produtos">Listar livros</a>
+            <a href="/cadastro_prateleira">Entrada prateleira</a>
+            <a href="/cadastro_classificacao">cadastro classificação</a>
+            <a href="/cadastro_setor">Cadastro de setor</a>
+            <a href="/entrada_outros">Entrada de outros</a>
+            <a href="/entrada_livro">Entrada de livros</a>
+        </div>
+        <div class="sidebar_login sidebar_close">
+            <h3>{{ usuario_logado }}</h3>
+            <a href="#">Logout</a>
+        </div>
+    </div>     
+    <main>
+        <div class="main_dashboard">
+            <h1>Cadastro Classificação</h1>
+            <p>
+                {{message}}
+            </p>
+            <form method="post" class="main_form">
+                <label for="nome_classificacao">Nome da classificação</label>
+    
+                <input type="text" name="nome_classificacao">
+    
+                <label for="descricao">Nome da classificação</label>
+    
+                <input type="text" name="descricao">
+    
+                <button type="submit">
+                    Cadastrar
+                </button>
+            </form>
+        </div>
+    </main>
+    <script src="../../static/js/estoque.js" type="module"></script>    
 </body>
 </html>

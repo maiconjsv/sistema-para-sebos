@@ -79,7 +79,22 @@
         justify-content: center;
         width: 100%;
         padding-bottom: 20px;
-    }            
+        transition: all ease 0.7s;
+        color: var(--branco);
+    }  
+        .sidebar_login a{
+            color: var(--cinza);
+            font-size: 80%;
+            
+        }
+        .sidebar_login.sidebar_close{
+            align-items: flex-end;
+            width: 50%;
+            align-self: flex-end;
+            margin-right: 24px;
+            transition: all ease-in 0.4s;
+            
+        }          
 
     /*--------------------------------------------------------------------*/
     

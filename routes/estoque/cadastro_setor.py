@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template
+from flask import Blueprint, request, render_template, session
 from auth import login_required
 from database import db
 
@@ -37,5 +37,6 @@ def cadastro_setor():
 
     return render_template(
         "estoque/cadastro_setor.html",
-        message=message
+        message=message,
+        usuario_logado = session["usuario_nome"]
     )

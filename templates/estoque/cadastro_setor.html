@@ -8,6 +8,24 @@
 
 <body>
 
+    <div class="sidebar">
+        <div class="sidebar_click">
+            <h3>BookCase</h3> 
+            <img src="../../static/media/arrow_open.svg" alt="" class="btn_sidebar_control">
+        </div>
+        <div class="sidebar_links" >
+            <a href="/produtos">Listar livros</a>
+            <a href="/cadastro_prateleira">Entrada prateleira</a>
+            <a href="/cadastro_classificacao">cadastro classificação</a>
+            <a href="/cadastro_setor">Cadastro de setor</a>
+            <a href="/entrada_outros">Entrada de outros</a>
+            <a href="/entrada_livro">Entrada de livros</a>
+        </div>
+        <div class="sidebar_login sidebar_close">
+            <h3>{{ usuario_logado }}</h3>
+            <a href="#">Logout</a>
+        </div>
+    </div>     
 <main>
     <div class="main_dashboard">
         <h2>Cadastro de Setor</h2>
@@ -34,6 +52,6 @@
         </form>
     </div>
 </main>
-
+<script src="../../static/js/estoque.js" type="module"></script>
 </body>
 </html>

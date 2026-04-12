@@ -1,7 +1,9 @@
 from auth import login_required
 from models.classificacoes import Classificacao
 from models.setor import Setor
-from flask import Blueprint, render_template
+from flask import Blueprint, render_template, g, session
+from routes.usuario import login
+
 
 entrada_outros_bp = Blueprint("entrada_outros", __name__)
 
@@ -17,5 +19,6 @@ def entrada_outros():
     return render_template(
         "estoque/entrada_outros.html",
         setores=setores,
-        classificacoes=classificacoes
+        classificacoes=classificacoes,
+        usuario_logado = session["usuario_nome"]
     )

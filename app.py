@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, g, session
 from database import db
 import os
 from flask_migrate import Migrate
@@ -23,13 +23,15 @@ app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db.init_app(app)
 migrate = Migrate(app, db)
 
+app.register_blueprint(login_bp)
 app.register_blueprint(entrada_livro_bp)
 app.register_blueprint(listar_produtos_bp)
 app.register_blueprint(cadastro_setor_bp)
 app.register_blueprint(cadastro_classificacao_bp)
 app.register_blueprint(cadastrar_prateleira_bp)
 app.register_blueprint(entrada_outros_bp)
-app.register_blueprint(login_bp)
+
+
 
 
 ##with app.app_context():

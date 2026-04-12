@@ -1,5 +1,5 @@
-from flask import Blueprint, request, render_template
-from flask_login import login_required
+from flask import Blueprint, request, render_template, session
+from auth import login_required
 from database import db
 from models.prateleira import Prateleira
 from models.setor import Setor
@@ -45,5 +45,6 @@ def cadastrar_prateleira():
         "estoque/cadastro_prateleira.html",
         prateleiras=prateleiras,
         message=message,
-        setores=setores
+        setores=setores,
+        usuario_logado = session["usuario_nome"]
     )

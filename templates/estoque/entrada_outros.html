@@ -3,61 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../../static/css/estoque.css">    
+    <title>Entrada de outros</title>
 </head>
 <body>
-    <h2>Entrada outros</h2>
 
-<p>{{ message }}</p>
-
-<form method="POST">
-
-    <label>Nome</label>
-    <br>
-    <input type="text" name="nome">
-    <br><br>
-
-    <label>Classificação do produto</label>
-    <br>
-    <select name="id_classificacao" >
-        {% for classificacao in classificacoes %}
-        <option value="{{ classificacao.id }}">
-            {{ classificacao.nome_classificacao }}
-        </option>
-        {% endfor %}        
-    </select>
-    <br><br>
-
-    <label>Preço de compra</label>
-    <br>
-    <input type="number" step="0.01" name="preco">
-    <br><br>
-
-    <label>Quantidade</label>
-    <br>
-    <input type="number" name="quantidade">
-    <br><br>
-
-    <label>Setor</label>
-    <br>
-    <select name="id_setor">
-
-    {% for setor in setores %}
-
-    <option value="{{ setor.id }}">
-        {{ setor.nome }} - {{ setor.descricao }}
-    </option>
-
-    {% endfor %}
-
-    </select>
-    <br><br>
-
-    <button type="submit">
-        Registrar Entrada
-    </button>
-
-</form>
-
+    <div class="sidebar">
+        <div class="sidebar_click">
+            <h3>BookCase</h3> 
+            <img src="../../static/media/arrow_open.svg" alt="" class="btn_sidebar_control">
+        </div>
+        <div class="sidebar_links" >
+            <a href="/produtos">Listar livros</a>
+            <a href="/cadastro_prateleira">Entrada prateleira</a>
+            <a href="/cadastro_classificacao">cadastro classificação</a>
+            <a href="/cadastro_setor">Cadastro de setor</a>
+            <a href="/entrada_outros">Entrada de outros</a>
+            <a href="/entrada_livro">Entrada de livros</a>
+        </div>
+        <div class="sidebar_login sidebar_close">
+            <h3>{{ usuario_logado }}</h3>
+            <a href="#">Logout</a>
+        </div>
+    </div>     
+    <main>
+        <div class="main_dashboard">
+            <h2>Entrada outros</h2>
+            
+            <p>{{ message }}</p>
+            
+            <form method="POST" class="main_form">
+            <label>Nome</label>
+            
+            <input type="text" name="nome">
+            
+            <label>Classificação do produto</label>
+            
+            <select name="id_classificacao" >
+                {% for classificacao in classificacoes %}
+                <option value="{{ classificacao.id }}">
+                    {{ classificacao.nome_classificacao }}
+                </option>
+                {% endfor %}
+            </select>
+            
+            <label>Preço de compra</label>
+            
+            <input type="number" step="0.01" name="preco">
+            
+            <label>Quantidade</label>
+            
+            <input type="number" name="quantidade">
+            <label>Setor</label>
+            <select name="id_setor">
+            {% for setor in setores %}
+            <option value="{{ setor.id }}">
+                {{ setor.nome }} - {{ setor.descricao }}
+            </option>
+            {% endfor %}
+            </select>
+            <button type="submit">
+                Registrar Entrada
+            </button>
+            
+            </form>
+        </div>
+    </main>
+<script src="../../static/js/estoque.js" type="module"></script>
 </body>
 </html>
