@@ -39,8 +39,7 @@ def login():
                 return redirect("/entrada_livro")
 
         flash("Login ou senha inválidos")
-        
-    usuario_logado = session["usuario_nome"]
+        usuario_logado = session["usuario_nome"]
     return render_template(
         "usuario/login.html",
         versao_sistema="1.0.0",
