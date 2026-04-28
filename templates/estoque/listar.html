@@ -3,36 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <title>Listar produtos</title>
+    <link rel="stylesheet" href="../../static/css/estoque.css">
 </head>
+<body>
 
-<h1>Estoque de Livros</h1>
+        <div class="headerbar">
+            <div class="links_headerbar">
+                <div class="dropbox_menu">
+                    <details>
+                        <summary>Entrada de produtos</summary>
+                        <div class="dropdown_content">
+                            <a href="/entrada_livro">Entrada de livros</a>
+                            <a href="/entrada_outros">Entrada de outros produtos</a>
+                            <a href="/produtos">Listar produtos</a>
+                        </div>
+                    </details>
 
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Título</th>
-        <th>Autor</th>
-        <th>Tema</th>
-        <th>Preço</th>
-        <th>Quantidade</th>
-        <th>Data Entrada</th>
-        <th>Prateleira</th>
-    </tr>
+                    <details>
+                        <summary>Gerenciamento</summary>
+                        <div class="dropdown_content">
+                            <a href="/cadastro_prateleira">Cadastro de prateleira</a>
+                            <a href="/cadastro_setor">Cadastro de setor</a>
+                            <a href="/cadastro_classificacao">cadastro de classificação de produto</a>
+                        </div>
+                    </details>
 
-    {% for livro in livros %}
-    <tr>
-        <td>{{ livro.id }}</td>
-        <td>{{ livro.titulo }}</td>
-        <td>{{ livro.autor }}</td>
-        <td>{{ livro.tema }}</td>
-        <td>{{ livro.preco_compra }}</td>
-        <td>{{ livro.quantidade }}</td>
-        <td>{{ livro.data_entrada }}</td>
-        <td>{{ livro.prateleira.codigo }}</td>
-    </tr>
-    {% endfor %}
+                </div>
+            </div>
+        </div>
 
-</table>
+        <div class="sidebar">
+            <div class="sidebar_click">
+                <h3>BookCase</h3> 
+                <img src="../../static/media/arrow_open.svg" alt="" class="btn_sidebar_control">
+            </div>
+            <div class="sidebar_links" >
+                <a href="/cadastro_prateleira">Entrada prateleira</a>
 
+            </div>
+            <div class="sidebar_login sidebar_close">
+                <h3>{{ usuario_logado }}</h3>
+                <a href="#">Logout</a>
+            </div>
+        </div>
+    <h1>Estoque de Livros</h1>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Tema</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Data Entrada</th>
+            <th>Prateleira</th>
+        </tr>
+
+        {% for livro in livros %}
+        <tr>
+            <td>{{ livro.id }}</td>
+            <td>{{ livro.titulo }}</td>
+            <td>{{ livro.autor }}</td>
+            <td>{{ livro.tema }}</td>
+            <td>{{ livro.preco_compra }}</td>
+            <td>{{ livro.quantidade }}</td>
+            <td>{{ livro.data_entrada }}</td>
+            <td>{{ livro.prateleira.codigo }}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+
+    <div id="app"></div
+
+    <script
+    type="module"
+    src="{{ url_for('static',
+        filename='js/estoque/listar.js') }}">
+</script>
+
+    </script>
+    <script src="../../static/js/estoque.js" type="module"></script>
 </body>
 </html>
