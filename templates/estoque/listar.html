@@ -4,33 +4,34 @@
     <meta charset="UTF-8">
     <title>Listar produtos</title>
     <link rel="stylesheet" href="../../static/css/estoque.css">
+    <link rel="stylesheet" href="../../static/css/listar.css">
 </head>
 <body>
+    
+    <div class="headerbar">
+        <div class="links_headerbar">
+            <div class="dropbox_menu">
+                <details>
+                    <summary>Entrada de produtos</summary>
+                    <div class="dropdown_content">
+                        <a href="/entrada_livro">Entrada de livros</a>
+                        <a href="/entrada_outros">Entrada de outros produtos</a>
+                        <a href="/livros">Listar livros</a>
+                    </div>
+                </details>
 
-        <div class="headerbar">
-            <div class="links_headerbar">
-                <div class="dropbox_menu">
-                    <details>
-                        <summary>Entrada de produtos</summary>
-                        <div class="dropdown_content">
-                            <a href="/entrada_livro">Entrada de livros</a>
-                            <a href="/entrada_outros">Entrada de outros produtos</a>
-                            <a href="/produtos">Listar produtos</a>
-                        </div>
-                    </details>
+                <details>
+                    <summary>Gerenciamento</summary>
+                    <div class="dropdown_content">
+                        <a href="/cadastro_prateleira">Cadastro de prateleira</a>
+                        <a href="/cadastro_setor">Cadastro de setor</a>
+                        <a href="/cadastro_classificacao">cadastro de classificação de produto</a>
+                    </div>
+                </details>
 
-                    <details>
-                        <summary>Gerenciamento</summary>
-                        <div class="dropdown_content">
-                            <a href="/cadastro_prateleira">Cadastro de prateleira</a>
-                            <a href="/cadastro_setor">Cadastro de setor</a>
-                            <a href="/cadastro_classificacao">cadastro de classificação de produto</a>
-                        </div>
-                    </details>
-
-                </div>
             </div>
         </div>
+    </div>
 
         <div class="sidebar">
             <div class="sidebar_click">
@@ -46,36 +47,121 @@
                 <a href="#">Logout</a>
             </div>
         </div>
-    <h1>Estoque de Livros</h1>
+    <div>
 
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Título</th>
-            <th>Autor</th>
-            <th>Tema</th>
-            <th>Preço</th>
-            <th>Quantidade</th>
-            <th>Data Entrada</th>
-            <th>Prateleira</th>
-        </tr>
+    <main>
 
-        {% for livro in livros %}
-        <tr>
-            <td>{{ livro.id }}</td>
-            <td>{{ livro.titulo }}</td>
-            <td>{{ livro.autor }}</td>
-            <td>{{ livro.tema }}</td>
-            <td>{{ livro.preco_compra }}</td>
-            <td>{{ livro.quantidade }}</td>
-            <td>{{ livro.data_entrada }}</td>
-            <td>{{ livro.prateleira.codigo }}</td>
-        </tr>
-        {% endfor %}
+    <div class="estoque_container">
 
-    </table>
+        <h1 class="estoque_titulo">
+            Estoque de Livros
+        </h1>
 
-    <div id="app"></div
+<form method="GET" class="busca_barra">
+
+    <label>Buscar por:</label>
+
+    <select name="tipo_busca">
+
+        <option value="titulo"
+            {% if tipo_busca == 'titulo' %}
+                selected
+            {% endif %}
+        >
+            Título
+        </option>
+
+        <option value="autor"
+            {% if tipo_busca == 'autor' %}
+                selected
+            {% endif %}
+        >
+            Autor
+        </option>
+
+        <option value="preco"
+            {% if tipo_busca == 'preco' %}
+                selected
+            {% endif %}
+        >
+            Preço
+        </option>
+
+    </select>
+
+    <input
+        type="text"
+        name="busca"
+        placeholder="Digite o valor"
+        value="{{ busca or '' }}"
+    >
+
+    <button type="submit">
+        Buscar
+    </button>
+
+    <a href="/produtos" class="btn_limpar">
+        Limpar
+    </a>
+
+</form>
+        <div class="tabela_container">
+
+            <table>
+
+                <tr>
+                    <th>ID</th>
+                    <th>Título</th>
+                    <th>Autor</th>
+                    <th>Tema</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Data Entrada</th>
+                    <th>Prateleira</th>
+                </tr>
+
+                {% for livro in livros.items %}
+
+                <tr>
+                    <td>{{ livro.id }}</td>
+                    <td>{{ livro.titulo }}</td>
+                    <td>{{ livro.autor }}</td>
+                    <td>{{ livro.tema }}</td>
+                    <td>{{ livro.preco_compra }}</td>
+                    <td>{{ livro.quantidade }}</td>
+                    <td>{{ livro.data_entrada }}</td>
+                    <td>{{ livro.prateleira.codigo }}</td>
+                </tr>
+
+                {% endfor %}
+
+            </table>
+
+        </div>
+
+        <div class="paginacao">
+
+            {% if livros.has_prev %}
+                <a href="?page={{ livros.prev_num }}">
+                    Anterior
+                </a>
+            {% endif %}
+
+            Página {{ livros.page }} de {{ livros.pages }}
+
+            {% if livros.has_next %}
+                <a href="?page={{ livros.next_num }}">
+                    Próxima
+                </a>
+            {% endif %}
+
+        </div>
+
+    </div>
+
+    </main>        
+
+    </main>
 
     <script
     type="module"

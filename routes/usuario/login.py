@@ -36,7 +36,7 @@ def login():
                 session["usuario_id"] = usuario.id
                 session["usuario_nome"] = usuario.nome
 
-                return redirect("/entrada_livro")
+                return redirect("/livros")
 
         flash("Login ou senha inválidos")
         usuario_logado = session["usuario_nome"]
